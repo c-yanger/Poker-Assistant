@@ -19,9 +19,6 @@ def match_cards(image_path, templates, threshold=0.8):
         return []
 
     matches = []
-    # (existing matching logic continues here)
-
-
     for label, template in templates.items():
         res = cv2.matchTemplate(img, template, cv2.TM_CCOEFF_NORMED)
         loc = cv2.minMaxLoc(res)
@@ -48,5 +45,3 @@ if __name__ == "__main__":
                 print(f"{label} ({score:.2f})")
             else:
                 print("[INFO] Matches found, but below confidence threshold.")
-
-
