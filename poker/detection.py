@@ -32,7 +32,7 @@ def match_cards(image_path, templates, threshold=0.8):
     return sorted(matches, key=lambda x: -x[1])  # Best match first
 
 if __name__ == "__main__":
-    templates = load_templates("card_templates")
+templates = load_templates(os.path.join(os.path.dirname(__file__), "..", "card_templates"))
     detected = match_cards("test_hand.jpg", templates)
 
     print("\n[DEBUG] Raw match scores:")
