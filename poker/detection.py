@@ -35,10 +35,17 @@ if __name__ == "__main__":
     templates = load_templates("card_templates")
     detected = match_cards("test_hand.jpg", templates)
 
-    print("\nDetected cards:")
-   if not detected:
-    print("[INFO] No cards detected above the threshold.")
-else:
+    print("\n[DEBUG] Raw match scores:")
     for label, score in detected:
-        print(f"{label} ({score:.2f})")
+        print(f"Checked: {label} -> {score:.2f}")
+
+    print("\nDetected cards:")
+    if not detected:
+        print("[INFO] No cards detected above the threshold.")
+    else:
+        for label, score in detected:
+            if score >= 0.8:
+                print(f"{label} ({score:.2f})")
+            else:
+                print("[INFO] Matches found, but below confidence threshold.")
 
