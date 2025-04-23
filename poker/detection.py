@@ -36,5 +36,9 @@ if __name__ == "__main__":
     detected = match_cards("test_hand.jpg", templates)
 
     print("\nDetected cards:")
+   if not detected:
+    print("[INFO] No cards detected above the threshold.")
+else:
     for label, score in detected:
         print(f"{label} ({score:.2f})")
+
