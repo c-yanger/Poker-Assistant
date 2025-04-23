@@ -12,7 +12,15 @@ def load_templates(template_folder):
 
 def match_cards(image_path, templates, threshold=0.8):
     img = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
+    
+    # ✅ Step 1: Check if the image loaded correctly
+    if img is None:
+        print(f"[ERROR] Could not load image at: {image_path}")
+        return []
+
     matches = []
+    # (existing matching logic continues here)
+
 
     for label, template in templates.items():
         res = cv2.matchTemplate(img, template, cv2.TM_CCOEFF_NORMED)
