@@ -1,0 +1,4 @@
+opencv-python==4.8.1.78
+pytesseract==0.3.10
+numpy==1.25.2
+deuces==1.0.0
